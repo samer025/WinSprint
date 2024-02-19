@@ -4,6 +4,7 @@ import lombok.*;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 
 @Entity
@@ -24,6 +25,10 @@ public class Exercise implements Serializable {
     private Eexercice type;
     private String description;
     private String image;
+
+    @ManyToMany(mappedBy = "exercises")
+    private Set<Program> programs;
+
 
 
 }
