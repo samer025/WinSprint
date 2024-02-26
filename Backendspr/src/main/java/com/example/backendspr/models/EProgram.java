@@ -1,6 +1,5 @@
-package com.example.backendspr.models;
+package com.example.backendspr.Models;
 
 public enum EProgram {
-    EFitness , Nitrution , Mental
-
+    Fitness , Nutrition , Mental
 }

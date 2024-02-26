@@ -1,4 +1,4 @@
-package com.example.backendspr.models;
+package com.example.backendspr.Models;
 
 public enum ERole {
     ROLE_USER,

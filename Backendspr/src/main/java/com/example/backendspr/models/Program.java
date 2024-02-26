@@ -1,4 +1,4 @@
-package com.example.backendspr.models;
+package com.example.backendspr.Models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -23,23 +23,7 @@ public class Program {
     private String title;
     private String description;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @ManyToOne(fetch = FetchType.LAZY) // Assuming many programs can have one user
+    @JoinColumn(name = "user_id") // Assuming this is the foreign key column in the programs table
     private User user;
-
-    @ManyToMany
-    @JoinTable(
-            name = "program_food",
-            joinColumns = @JoinColumn(name = "program_id"),
-            inverseJoinColumns = @JoinColumn(name = "food_id")
-    )
-    private Set<Food> foods;
-
-    @ManyToMany
-    @JoinTable(
-            name = "program_exercise",
-            joinColumns = @JoinColumn(name = "program_id"),
-            inverseJoinColumns = @JoinColumn(name = "exercise_id")
-    )
-    private Set<Exercise> exercises;
 }
