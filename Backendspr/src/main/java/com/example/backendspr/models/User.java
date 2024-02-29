@@ -1,4 +1,4 @@
-package com.example.backendspr.models;
+package com.example.backendspr.Models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -24,8 +24,8 @@ public class User {
 
     private String username;
 
-
     private String email;
+
 
     private String password;
 
@@ -49,4 +49,9 @@ public class User {
     private Set<Program> programs = new HashSet<>();
 
 
+    public User(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
 }

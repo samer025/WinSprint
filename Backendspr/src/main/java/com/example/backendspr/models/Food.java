@@ -1,10 +1,9 @@
-package com.example.backendspr.models;
+package com.example.backendspr.Models;
 
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
-import java.util.Set;
 
 @Entity
 @Getter
@@ -23,8 +22,5 @@ public class Food implements Serializable {
     private Integer qte;
     private String conseil;
 
-
-    @ManyToMany(mappedBy = "foods")
-    private Set<Program> programs;
 }
 
