@@ -6,6 +6,7 @@ import com.example.backendspr.Models.Role;
 import com.example.backendspr.Models.User;
 import com.example.backendspr.Repositories.RoleRepository;
 import com.example.backendspr.Repositories.UserRepository;
+import com.example.backendspr.Services.ServiceImpl.UserServiceImpl;
 import com.example.backendspr.payload.request.LoginRequest;
 import com.example.backendspr.payload.request.SignupRequest;
 import com.example.backendspr.payload.response.JwtResponse;
@@ -45,6 +46,9 @@ public class AuthController {
 
   @Autowired
   JwtUtils jwtUtils;
+
+  @Autowired
+  private UserServiceImpl authService;
 
   @PostMapping("/signin")
   public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
@@ -120,5 +124,11 @@ public class AuthController {
     userRepository.save(user);
 
     return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
+  }
+
+  @GetMapping("/isLoggedIn")
+  public ResponseEntity<?> isLoggedIn() {
+    boolean isLoggedIn = authService.isLoggedIn();
+    return ResponseEntity.ok(isLoggedIn);
   }
 }
