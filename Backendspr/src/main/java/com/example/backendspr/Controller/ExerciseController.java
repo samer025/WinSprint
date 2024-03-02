@@ -12,6 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/exercises")
+@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*")
 public class ExerciseController {
 
     @Autowired
@@ -29,9 +30,9 @@ public class ExerciseController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @PostMapping
-    public ResponseEntity<Exercise> createExercise(@RequestBody Exercise exercise) {
-        Exercise createdExercise = exerciseService.saveOrUpdateExercise(exercise);
+    @PostMapping("/{programId}")
+    public ResponseEntity<Exercise> createExercise(@RequestBody Exercise exercise, @PathVariable Long programId) {
+        Exercise createdExercise = exerciseService.addExercise(exercise, programId);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdExercise);
     }
 
@@ -41,7 +42,7 @@ public class ExerciseController {
             return ResponseEntity.notFound().build();
         }
         exercise.setId(id);
-        Exercise updatedExercise = exerciseService.saveOrUpdateExercise(exercise);
+        Exercise updatedExercise = exerciseService.updateExercise(exercise);
         return ResponseEntity.ok(updatedExercise);
     }
 

@@ -2,6 +2,7 @@ package com.example.backendspr.Controller;
 
 import com.example.backendspr.Models.Program;
 import com.example.backendspr.Services.Interfaces.ProgramService;
+import jakarta.servlet.ServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/programs")
+@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*")
 public class ProgramController {
 
     @Autowired
@@ -35,19 +37,23 @@ public class ProgramController {
             Program createdProgram = programService.addProgram(program, userId);
             return ResponseEntity.status(HttpStatus.CREATED).body(createdProgram);
         } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body(null);
+            // Return a bad request response
+            return ResponseEntity.badRequest().build();
         }
     }
+
+
 
     @PutMapping("/{id}")
     public ResponseEntity<Program> updateProgram(@PathVariable Long id, @RequestBody Program program) {
         try {
-            Program updatedProgram = programService.updateProgram(program);
+            Program updatedProgram = programService.updateProgram(id, program);
             return ResponseEntity.ok(updatedProgram);
         } catch (IllegalArgumentException e) {
             return ResponseEntity.notFound().build();
         }
     }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteProgram(@PathVariable Long id) {

@@ -10,7 +10,9 @@ public interface ExerciseService {
 
     Optional<Exercise> getExerciseById(Long id);
 
-    Exercise saveOrUpdateExercise(Exercise exercise);
+    Exercise addExercise(Exercise exercise, Long programId);
+
+    Exercise updateExercise(Exercise exercise);
 
     void deleteExercise(Long id);
 }

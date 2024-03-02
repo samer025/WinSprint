@@ -1,10 +1,10 @@
 package com.example.backendspr.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
-
 
 @Entity
 @Getter
@@ -25,5 +25,9 @@ public class Exercise implements Serializable {
     private String description;
     private String image;
 
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "program_id") // Assuming this is the foreign key column in the exercises table
+    private Program program;
 
 }
