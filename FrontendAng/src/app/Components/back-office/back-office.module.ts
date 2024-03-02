@@ -5,13 +5,16 @@ import { BackOfficeRoutingModule } from './back-office-routing.module';
 import { BackOfficeComponent } from './back-office.component';
 import { NavBarComponent } from '../../components/back-office/shared/nav-bar/nav-bar.component';
 import { HeaderComponent } from '../../components/back-office/shared/header/header.component';
+import { ListProgramsComponent } from './programs/list-programs/list-programs.component';
+
 
 
 @NgModule({
   declarations: [
     BackOfficeComponent,
     NavBarComponent,
-    HeaderComponent
+    HeaderComponent,
+    ListProgramsComponent,
   ],
   imports: [
     CommonModule,
