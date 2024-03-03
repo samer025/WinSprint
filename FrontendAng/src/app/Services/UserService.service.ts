@@ -1,19 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { User } from '../Core/Uset';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private API_URL = 'http://localhost:8082/SpringMVC/api/test/';
-  private USER_URL = 'http://localhost:8082/SpringMVC/api/users/';
+  private API_URL = 'http://localhost:8082/SpringMVC/api/users/';
+  private USER_URL = 'http://localhost:8082/SpringMVC/api/users';
 
   constructor(private http: HttpClient) { }
 
   getPublicContent(): Observable<any> {
-    return this.http.get<any>(this.API_URL + 'all');
+    return this.http.get<any>(this.USER_URL);
   }
 
   getUserBoard(): Observable<any> {
@@ -29,11 +30,19 @@ export class UserService {
   }
 
   getOneUser(id: number): Observable<any> {
-    return this.http.get<any>(this.USER_URL + id);
+    return this.http.get<any>(this.API_URL + id);
   }
 
   updateUserWithoutPass(data: any, id: number): Observable<any> {
-    return this.http.put<any>(this.USER_URL + 'updateUser/' + id, data);
+    return this.http.put<any>(this.API_URL + 'updateUser/' + id, data);
+  }
+
+  deleteUser(id: number): Observable<any> {
+    return this.http.delete<any>(this.API_URL + id);
+  }
+
+  getUserById(id: number): Observable<User> {
+    return this.http.get<User>(this.API_URL + id);
   }
 
 

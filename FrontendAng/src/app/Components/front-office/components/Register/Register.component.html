@@ -33,18 +33,13 @@
         </div>
 
         <div class="form-group center-container">
-          <button type="submit" class="btn btn-primary btn-block" [disabled]="loading"
+          <button type="submit" class="btn btn-primary btn-block"
             (mouseover)="handleMouseOver($event)" (mouseleave)="handleMouseLeave($event)">
-            <span *ngIf="loading" class="spinner-border spinner-border-sm"></span>
             Sign Up
           </button>
         </div>
       </div>
     </form>
-
-    <div *ngIf="message" class="alert" [ngClass]="successful ? 'alert-success' : 'alert-danger'">
-      {{ message }}
-    </div>
   </div>
 </div>
 <br><br><br><br><br><br>

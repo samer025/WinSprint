@@ -1,5 +1,6 @@
 package com.example.backendspr.Models;
 
+import com.example.backendspr.models.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,7 +20,7 @@ public class Program {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Enumerated(EnumType.STRING)
-    private EProgram programType;
+    private com.example.backendspr.Models.EProgram programType;
     private String title;
     private String description;
 

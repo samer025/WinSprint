@@ -1,7 +1,7 @@
 package com.example.backendspr.Services.Interfaces;
 
-import com.example.backendspr.Models.User;
 import com.example.backendspr.Models.UserDTO;
+import com.example.backendspr.models.User;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -19,4 +19,8 @@ public interface UserService {
 
     User editUser(int userId ,MultipartFile file, String username, String email, String firstname, 
     String lastname, String birthdate, String address, String phone) throws Exception;
+
+
+    boolean deleteUser(int idUser);
+
 }

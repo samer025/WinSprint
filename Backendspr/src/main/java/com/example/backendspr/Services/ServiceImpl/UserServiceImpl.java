@@ -1,7 +1,7 @@
 package com.example.backendspr.Services.ServiceImpl;
 
 
-import com.example.backendspr.Models.User;
+import com.example.backendspr.models.User;
 import com.example.backendspr.Models.UserDTO;
 import com.example.backendspr.Repositories.UserRepository;
 import com.example.backendspr.Services.Interfaces.UserService;
@@ -121,6 +121,17 @@ public class UserServiceImpl implements UserService {
 
         // Check if the principal is an instance of UserDetails
         return principal instanceof UserDetails;
+    }
+
+    @Override
+    public boolean deleteUser(int idUser) {
+        Optional<User> userOptional = userRepository.findById(Long.valueOf(idUser));
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            userRepository.delete(user);
+            return true;
+        }
+        return false;
     }
     
 }

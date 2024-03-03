@@ -16,7 +16,6 @@ export class RegisterComponent {
   registrationError: string = '';
 
   successful: boolean = false;
-  loading: boolean = false;
   message: string = '';
   registerForm: FormGroup;
   constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router)  {
@@ -33,7 +32,6 @@ export class RegisterComponent {
     }
     this.message = '';
     this.successful = false;
-    this.loading = true;
 
     const user = this.registerForm.value; // Use form group value
 
@@ -41,15 +39,13 @@ export class RegisterComponent {
       (data) => {
         this.message = data.message;
         this.successful = true;
-        this.loading = false;
-        this.router.navigateByUrl('/frontOffice/login');
+        this.router.navigate(['/login']);
 
       },
       (error) => {
         this.message = (error.response && error.response.data && error.response.data.message) ||
           error.message || error.toString();
         this.successful = false;
-        this.loading = false;
       }
     );
   }
