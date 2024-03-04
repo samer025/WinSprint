@@ -1,0 +1,23 @@
+<section class="about_section layout_margin">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-5 offset-md-1">
+        <div class="detail-box">
+          <div class="heading_container">
+            <h2>
+              {{ exercise.nom }} <br>
+              <small class="text-muted">Exercise Type: {{ exercise.type }}</small>
+            </h2>
+            <hr>
+          </div>
+          <p class="lead">{{ exercise.description }}</p>
+        </div>
+      </div>
+      <div class="col-md-6 px-0">
+        <div class="img-box">
+          <img [src]="exercise.image" alt="Exercise Image" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

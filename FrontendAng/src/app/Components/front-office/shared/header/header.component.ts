@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-
+  closeNav() {
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    // @ts-ignore
+    navbarToggler.classList.add('collapsed');
+    // @ts-ignore
+    navbarCollapse.classList.remove('show');
+  }
 }
