@@ -1,8 +1,8 @@
 package com.example.backendspr.Repositories;
 
 
-import com.example.backendspr.Models.ERole;
-import com.example.backendspr.Models.Role;
+import com.example.backendspr.models.ERole;
+import com.example.backendspr.models.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

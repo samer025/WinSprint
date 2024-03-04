@@ -1,6 +1,6 @@
 package com.example.backendspr.Controller;
 
-import com.example.backendspr.Models.Exercise;
+import com.example.backendspr.models.Exercise;
 import com.example.backendspr.Services.Interfaces.ExerciseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

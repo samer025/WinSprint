@@ -1,6 +1,6 @@
 package com.example.backendspr.Services.ServiceImpl;
-import com.example.backendspr.Models.Program;
-import com.example.backendspr.Models.User;
+import com.example.backendspr.models.Program;
+import com.example.backendspr.models.User;
 import com.example.backendspr.Repositories.ProgramRepository;
 import com.example.backendspr.Repositories.UserRepository;
 import com.example.backendspr.Services.Interfaces.ProgramService;

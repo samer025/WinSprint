@@ -1,6 +1,6 @@
 package com.example.backendspr.Services.ServiceImpl;
 
-import com.example.backendspr.Models.Food;
+import com.example.backendspr.models.Food;
 import com.example.backendspr.Repositories.FoodRepository;
 import com.example.backendspr.Services.Interfaces.FoodService;
 import org.springframework.beans.factory.annotation.Autowired;

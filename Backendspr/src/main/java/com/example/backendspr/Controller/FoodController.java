@@ -1,6 +1,6 @@
 package com.example.backendspr.Controller;
 
-import com.example.backendspr.Models.Food;
+import com.example.backendspr.models.Food;
 import com.example.backendspr.Services.Interfaces.FoodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

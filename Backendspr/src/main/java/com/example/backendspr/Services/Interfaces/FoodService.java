@@ -1,6 +1,6 @@
 package com.example.backendspr.Services.Interfaces;
 
-import com.example.backendspr.Models.Food;
+import com.example.backendspr.models.Food;
 
 import java.util.List;
 import java.util.Optional;

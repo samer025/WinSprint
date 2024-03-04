@@ -1,5 +1,5 @@
 package com.example.backendspr.Services.Interfaces;
-import com.example.backendspr.Models.Program;
+import com.example.backendspr.models.Program;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,6 +1,6 @@
 package com.example.backendspr.Repositories;
 
-import com.example.backendspr.Models.User;
+import com.example.backendspr.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

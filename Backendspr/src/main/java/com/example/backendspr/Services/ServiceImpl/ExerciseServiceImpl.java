@@ -1,6 +1,6 @@
 package com.example.backendspr.Services.ServiceImpl;
 
-import com.example.backendspr.Models.Exercise;
+import com.example.backendspr.models.Exercise;
 import com.example.backendspr.Repositories.ExerciceRepository;
 import com.example.backendspr.Services.Interfaces.ExerciseService;
 import org.springframework.beans.factory.annotation.Autowired;
