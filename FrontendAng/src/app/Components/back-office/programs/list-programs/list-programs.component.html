@@ -6,9 +6,6 @@
       <thead class="text-dark fs-4">
       <tr>
         <th class="border-bottom-0">
-          <h6 class="fw-semibold mb-0">Id</h6>
-        </th>
-        <th class="border-bottom-0">
           <h6 class="fw-semibold mb-0">Type</h6>
         </th>
         <th class="border-bottom-0">
@@ -27,7 +24,6 @@
       </thead>
       <tbody>
       <tr *ngFor="let program of programs">
-        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ program.id }}</h6></td>
         <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ program.programType }}</h6></td>
         <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ program.title }}</h6></td>
         <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ program.description }}</h6></td>

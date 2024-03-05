@@ -22,7 +22,6 @@
                 <img [src]="exercise.image" class="card-img-top" alt="Exercise Image">
                 <div class="card-body">
                   <h5 class="card-title">{{ exercise.nom }}</h5>
-                  <p class="card-text">{{ exercise.description }}</p>
                   <a [routerLink]="['/frontOffice/programs/exercise', exercise.id]" class="btn btn-primary">View Exercise</a>
                 </div>
               </div>
