@@ -15,7 +15,8 @@
       </div>
       <div class="col-md-6 px-0">
         <div class="img-box">
-          <img [src]="exercise.image" alt="Exercise Image" class="img-fluid">
+          <img alt="" [src]="'data:image/jpeg;base64,' + exercise.image" alt="Exercise Image" class="img-fluid" style="max-height: 400px;">
+
         </div>
       </div>
     </div>

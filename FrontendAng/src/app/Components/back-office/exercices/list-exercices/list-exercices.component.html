@@ -16,7 +16,7 @@
         <td class="border-bottom-0">{{ exercise.nom }}</td>
         <td class="border-bottom-0">{{ exercise.type }}</td>
         <td class="border-bottom-0">{{ exercise.description }}</td>
-        <td class="border-bottom-0"><img [src]="exercise.image" alt="Exercise Image" style="max-width: 100px;"></td>
+        <td class="border-bottom-0"><img alt="" [src]="'data:image/jpeg;base64,' + exercise.image" alt="Exercise Image" style="width: 100px;height: 100px;"></td>
         <td class="border-bottom-0">
           <button class="btn btn-primary btn-sm me-2" [routerLink]="['/backOffice/exercices/exercice', exercise.id]">Update</button>
           <button class="btn btn-danger btn-sm" (click)="deleteExercice(exercise.id)">Delete</button>
