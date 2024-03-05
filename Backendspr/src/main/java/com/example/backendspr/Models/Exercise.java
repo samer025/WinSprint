@@ -10,6 +10,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @ToString
+@Builder
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,11 +24,15 @@ public class Exercise implements Serializable {
     @Enumerated(EnumType.STRING)
     private Eexercice type;
     private String description;
-    private String image;
+    @Lob
+    @Column(length = 1000000)
+    private byte[] image;
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "program_id") // Assuming this is the foreign key column in the exercises table
     private Program program;
+
+
 
 }
