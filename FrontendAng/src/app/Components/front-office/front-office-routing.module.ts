@@ -9,6 +9,7 @@ const routes: Routes = [
     children: [
       { path: '', component: HomeComponent },
       { path: 'programs', loadChildren: () => import('../../components/front-office/programs/programs.module').then(m => m.ProgramsModule) },
+      { path: 'articles', loadChildren: () => import('../../components/front-office/articles/articles.module').then(m => m.ArticlesModule) },
     ] },
 
 ];
