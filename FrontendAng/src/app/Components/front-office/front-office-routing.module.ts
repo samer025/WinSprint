@@ -1,8 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FrontOfficeComponent } from './front-office.component';
+import {HomeComponent} from "./shared/home/home.component";
 
-const routes: Routes = [{ path: '', component: FrontOfficeComponent }];
+const routes: Routes = [
+  { path: '',
+    component: FrontOfficeComponent ,
+    children: [
+      { path: '', component: HomeComponent },
+      { path: 'programs', loadChildren: () => import('../../components/front-office/programs/programs.module').then(m => m.ProgramsModule) },
+      { path: 'articles', loadChildren: () => import('../../components/front-office/articles/articles.module').then(m => m.ArticlesModule) },
+    ] },
+
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
