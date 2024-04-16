@@ -1,6 +1,7 @@
 package com.example.backendspr.Controller;
 
-import com.example.backendspr.Models.User;
+import com.example.backendspr.Repositories.UserRepository;
+import com.example.backendspr.models.User;
 import com.example.backendspr.Models.UserDTO;
 import com.example.backendspr.Services.Interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/users")
@@ -18,6 +20,7 @@ public class UserController {
     
     @Autowired
     private UserService userService;
+
 
     @GetMapping
     public List<User>getAllUsers(){
@@ -40,6 +43,16 @@ public class UserController {
 
         if (updated) {
             return ResponseEntity.ok("User updated successfully");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteUser(@PathVariable int id) {
+        boolean deleted = userService.deleteUser(id);
+        if (deleted) {
+            return ResponseEntity.ok("User deleted successfully");
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
         }

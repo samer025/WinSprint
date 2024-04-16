@@ -1,0 +1,23 @@
+.delete-button {
+    background-color: #dc3545; /* Red background color */
+    color: #fff; /* White text color */
+    border: none; /* Remove button border */
+    padding: 8px 12px; /* Add padding to the button */
+    border-radius: 4px; /* Add border radius */
+    cursor: pointer; /* Change cursor to pointer on hover */
+  }
+  
+  .delete-button:hover {
+    background-color: #c82333; /* Darker red background color on hover */
+  }
+
+
+
+  .edit-button {
+    background-color: green; /* Red background color */
+    color: #fff; /* White text color */
+    border: none; /* Remove button border */
+    padding: 8px 12px; /* Add padding to the button */
+    border-radius: 4px; /* Add border radius */
+    cursor: pointer; /* Change cursor to pointer on hover */
+  }

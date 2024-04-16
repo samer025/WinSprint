@@ -5,6 +5,10 @@ import { FrontOfficeRoutingModule } from './front-office-routing.module';
 import { FrontOfficeComponent } from './front-office.component';
 import { HeaderComponent } from '../../components/front-office/shared/header/header.component';
 import { FooterComponent } from '../../components/front-office/shared/footer/footer.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './components/Register/Register.component';
+import { LoginComponent } from './components/Login/Login.component';
+import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from '../../components/front-office/shared/home/home.component';
 
 
@@ -21,7 +25,9 @@ import { HomeComponent } from '../../components/front-office/shared/home/home.co
   ],
   imports: [
     CommonModule,
-    FrontOfficeRoutingModule
+    FrontOfficeRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ]
 })
 export class FrontOfficeModule { }

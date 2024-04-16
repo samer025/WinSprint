@@ -1,0 +1,24 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Action</th> <!-- New column header for actions -->
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.id }}</td>
+      <td>{{ user.username }}</td>
+      <td>{{ user.email }}</td>
+      <td>
+        <button class="delete-button" (click)="deleteUser(user.id)">Delete</button>
+        &nbsp;
+        <button class="edit-button" [routerLink]="['/backOffice/users', user.id]">Edit</button>
+
+      </td>
+    </tr>
+  </tbody>
+</table>

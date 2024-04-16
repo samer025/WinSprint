@@ -7,6 +7,10 @@ import { NavBarComponent } from '../../components/back-office/shared/nav-bar/nav
 import { HeaderComponent } from '../../components/back-office/shared/header/header.component';
 import { ListProgramsComponent } from './programs/list-programs/list-programs.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { UserListComponent } from './UserList/UserList.component';
+import { FormsModule } from '@angular/forms';
+import { EditUserComponent } from './EditUser/EditUser.component';
 
 
 @NgModule({
@@ -15,10 +19,15 @@ import { ListProgramsComponent } from './programs/list-programs/list-programs.co
     NavBarComponent,
     HeaderComponent,
     ListProgramsComponent,
+    UserListComponent,
+    EditUserComponent
   ],
   imports: [
     CommonModule,
-    BackOfficeRoutingModule
+    BackOfficeRoutingModule,
+    HttpClientModule,
+    FormsModule
+
   ]
 })
 export class BackOfficeModule { }

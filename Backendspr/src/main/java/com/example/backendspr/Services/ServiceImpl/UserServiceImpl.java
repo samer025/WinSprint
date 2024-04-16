@@ -1,7 +1,7 @@
 package com.example.backendspr.Services.ServiceImpl;
 
 
-import com.example.backendspr.Models.User;
+import com.example.backendspr.models.User;
 import com.example.backendspr.Models.UserDTO;
 import com.example.backendspr.Repositories.UserRepository;
 import com.example.backendspr.Services.Interfaces.UserService;
@@ -9,6 +9,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -111,6 +113,25 @@ public class UserServiceImpl implements UserService {
     private Date parseDate(String dateStr) throws ParseException, ParseException {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
         return dateFormat.parse(dateStr);
+    }
+
+    public boolean isLoggedIn() {
+        // Get the authentication object from the security context
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        // Check if the principal is an instance of UserDetails
+        return principal instanceof UserDetails;
+    }
+
+    @Override
+    public boolean deleteUser(int idUser) {
+        Optional<User> userOptional = userRepository.findById(Long.valueOf(idUser));
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            userRepository.delete(user);
+            return true;
+        }
+        return false;
     }
     
 }

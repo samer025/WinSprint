@@ -1,11 +1,13 @@
-package com.example.backendspr.Models;
+package com.example.backendspr.models;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.text.DateFormat;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -33,6 +35,7 @@ public class User {
 
     private String lastname;
 
+
     private Date birthdate;
 
     private String address;
@@ -43,10 +46,10 @@ public class User {
     @JoinTable(  name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles = new HashSet<>();
+    private Set<com.example.backendspr.Models.Role> roles = new HashSet<>();
 
     @OneToMany(mappedBy = "user")
-    private Set<Program> programs = new HashSet<>();
+    private Set<com.example.backendspr.Models.Program> programs = new HashSet<>();
 
 
     public User(String username, String email, String password) {

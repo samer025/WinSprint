@@ -1,6 +1,6 @@
 package com.example.backendspr.security.services;
 ;
-import com.example.backendspr.Models.User;
+import com.example.backendspr.models.User;
 import com.example.backendspr.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
