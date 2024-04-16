@@ -1,0 +1,25 @@
+<div class="card-body">
+  <form *ngIf="programForm" [formGroup]="programForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" class="form-control" id="title" formControlName="title" required>
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea class="form-control" id="description" formControlName="description" required></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="type" class="form-label">Type</label>
+      <select class="form-select" id="type" formControlName="programType" required>
+        <option value="Fitness">Fitness</option>
+        <option value="Nutrition">Nutrition</option>
+        <option value="Mental">Mental</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="prix" class="form-label">Prix</label>
+      <input type="text" class="form-control" id="prix" formControlName="prix" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

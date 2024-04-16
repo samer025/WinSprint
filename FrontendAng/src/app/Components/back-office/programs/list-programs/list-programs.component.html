@@ -1,0 +1,58 @@
+<div class="card-body p-4">
+  <h5 class="card-title fw-semibold mb-4">Programs List</h5>
+  <button class="btn btn-primary mb-3" routerLink="/backOffice/programs/addProgram">Add Program</button>
+  <div class="table-responsive">
+    <table class="table text-nowrap mb-0 align-middle">
+      <thead class="text-dark fs-4">
+      <tr>
+        <th class="border-bottom-0">
+          <h6 class="fw-semibold mb-0">Type</h6>
+        </th>
+        <th class="border-bottom-0">
+          <h6 class="fw-semibold mb-0">Title</h6>
+        </th>
+        <th class="border-bottom-0">
+          <h6 class="fw-semibold mb-0">Description</h6>
+        </th>
+        <th class="border-bottom-0">
+          <h6 class="fw-semibold mb-0">Prix</h6>
+        </th>
+        <th class="border-bottom-0">
+          <h6 class="fw-semibold mb-0">Exercises</h6>
+        </th>
+        <th class="border-bottom-0">
+          <h6 class="fw-semibold mb-0">Actions</h6>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let program of programs">
+        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ program.programType }}</h6></td>
+        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ program.title }}</h6></td>
+        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ program.description }}</h6></td>
+        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ program.prix }}</h6></td>
+        <td class="border-bottom-0">
+          <ul>
+            <ng-container *ngIf="program.exercises.length <= 2 || showAllExercises; else showLimitedExercises">
+              <li *ngFor="let exercise of program.exercises">{{ exercise.nom }}</li>
+            </ng-container>
+            <ng-template #showLimitedExercises>
+              <li *ngFor="let exercise of program.exercises.slice(0, 2)">{{ exercise.nom }}</li>
+            </ng-template>
+          </ul>
+          <span *ngIf="program.exercises.length > 2" class="text-primary" (click)="toggleShowAllExercises()" style="cursor: pointer;">
+  {{ showAllExercises ? 'Show less' : 'Show more' }}
+</span>
+
+        </td>
+
+        <td class="border-bottom-0">
+          <button class="btn btn-primary btn-sm me-2" [routerLink]="['/backOffice/programs/program', program.id]">Update</button>
+          <button class="btn btn-danger btn-sm me-2" (click)="deleteProgram(program.id)">Delete</button>
+          <button class="btn btn-primary btn-sm me-2" [routerLink]="['/backOffice/exercices/addExercice', program.id]">Add Exercise</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './components/Register/Register.component';
 import { LoginComponent } from './components/Login/Login.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from '../../components/front-office/shared/home/home.component';
 
 
 
@@ -17,7 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     FrontOfficeComponent,
     HeaderComponent,
     FooterComponent,
-
+    HomeComponent,
   ],
   exports: [
     HeaderComponent

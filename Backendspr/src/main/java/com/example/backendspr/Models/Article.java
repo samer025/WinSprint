@@ -1,29 +1,30 @@
 package com.example.backendspr.Models;
 
+import jakarta.persistence.*;
 import lombok.*;
 
-import jakarta.persistence.*;
 import java.io.Serializable;
-
 
 @Entity
 @Getter
 @Setter
-@ToString
-@EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
-@Table( name = "Exercise")
-public class Exercise implements Serializable {
+@Table(name = "Article")
+public class Article implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nom;
-    @Enumerated(EnumType.STRING)
-    private Eexercice type;
+
+    private String title;
+
+    @Column(length = 1000)
     private String description;
-    private String image;
+
+    private String link;
+    @Column(length = 1000)
+    private String imageUrl;
 
 
 }

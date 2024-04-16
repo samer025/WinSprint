@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {BmiCalculatorComponent} from "./bmi-calculator/bmi-calculator.component";
 import { RegisterComponent } from './components/front-office/components/Register/Register.component';
 import { LoginComponent } from './components/front-office/components/Login/Login.component';
 import { AuthGuard } from './Components/front-office/shared/AuthGuard/AuthGuard.guard';
@@ -18,7 +19,9 @@ const routes: Routes = [
     loadChildren: () => import('./components/back-office/back-office.module').then(m => m.BackOfficeModule),
     canActivate: [AuthGuard] // Protect backOffice route
   }
+  ,{ path: 'BMI', component: BmiCalculatorComponent }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

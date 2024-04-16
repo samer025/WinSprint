@@ -1,0 +1,41 @@
+<section class="about_section layout_margin">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 offset-md-1">
+        <div class="detail-box">
+          <div class="heading_container">
+            <h2>
+              {{ program.title }} <br>
+              Program
+            </h2>
+            <hr>
+          </div>
+          <p>
+            {{ program.description }}
+          </p>
+          <button (click)="showPDF(this.program)">download</button>
+        </div>
+        <div class="exercises-list">
+          <h3>Exercises</h3>
+          <div class="row">
+            <div class="col-md-4 mb-3" *ngFor="let exercise of program.exercises">
+              <div class="card">
+                <img alt="" [src]="'data:image/jpeg;base64,' + exercise.image" style="width: 250px; height: 250px;">
+                <div class="card-body">
+                  <h5 class="card-title">{{ exercise.nom }}</h5>
+                  <a [routerLink]="['/frontOffice/programs/exercise', exercise.id]" class="btn btn-primary">View Exercise</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 px-0">
+        <div class="img-box">
+          <!-- Add an image for the program if available -->
+          <!-- <img [src]="program.image" alt="Program Image"> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

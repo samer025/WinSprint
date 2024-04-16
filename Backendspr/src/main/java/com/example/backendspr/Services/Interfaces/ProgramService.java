@@ -11,7 +11,7 @@ public interface ProgramService {
 
     Program addProgram(Program program, Long userId);
 
-    Program updateProgram(Program program);
+    Program updateProgram(Long id,Program program);
     void deleteProgram(Long id);
 }
 

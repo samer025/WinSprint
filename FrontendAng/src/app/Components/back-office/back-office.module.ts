@@ -5,6 +5,8 @@ import { BackOfficeRoutingModule } from './back-office-routing.module';
 import { BackOfficeComponent } from './back-office.component';
 import { NavBarComponent } from '../../components/back-office/shared/nav-bar/nav-bar.component';
 import { HeaderComponent } from '../../components/back-office/shared/header/header.component';
+import { ListProgramsComponent } from './programs/list-programs/list-programs.component';
+
 import { HttpClientModule } from '@angular/common/http';
 import { UserListComponent } from './UserList/UserList.component';
 import { FormsModule } from '@angular/forms';
@@ -16,6 +18,7 @@ import { EditUserComponent } from './EditUser/EditUser.component';
     BackOfficeComponent,
     NavBarComponent,
     HeaderComponent,
+    ListProgramsComponent,
     UserListComponent,
     EditUserComponent
   ],

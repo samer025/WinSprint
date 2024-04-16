@@ -30,15 +30,18 @@ public class ProgramServiceImpl implements ProgramService {
     }
 
     @Override
-    public Program updateProgram(Program program) {
-        // Check if the program already exists
-        Optional<Program> optionalProgram = programRepository.findById(program.getId());
+    public Program updateProgram(Long id, Program program) {
+        // Check if the program with the given ID exists
+        Optional<Program> optionalProgram = programRepository.findById(id);
         if (optionalProgram.isPresent()) {
+            // Update the program's details
+            program.setId(id); // Set the ID of the program to be updated
             return programRepository.save(program);
         } else {
-            throw new IllegalArgumentException("Program with id " + program.getId() + " does not exist!");
+            throw new IllegalArgumentException("Program with id " + id + " does not exist!");
         }
     }
+
 
     @Override
     public Program addProgram(Program program, Long userId) {

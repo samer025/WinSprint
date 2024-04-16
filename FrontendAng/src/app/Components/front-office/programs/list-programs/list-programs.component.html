@@ -1,0 +1,44 @@
+<section class="dish_section layout_padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="dish_container">
+          <div class="row">
+            <div class="col-12 col-lg-6 mb-3" *ngFor="let program of pagedPrograms">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">{{ program.title }}</h5>
+                  <p class="card-text">{{ program.description }}</p>
+                  <input (click)="pay(program.prix,program.id)" type="submit" name="submit" class="btn btn-success" value="Pay for {{program.prix}} "/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <nav aria-label="Page navigation">
+          <ul class="pagination justify-content-center">
+            <li class="page-item" *ngFor="let _ of Array.from({ length: totalPages }); let i = index"
+                [class.active]="currentPage === i">
+              <a class="page-link" (click)="changePage(i)">{{ i + 1 }}</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="col-md-6">
+        <div class="detail-box">
+          <div class="heading_container">
+            <hr>
+            <h2>
+              Our <br>
+              Programs<br>
+            </h2>
+          </div>
+          <p>
+            Our fitness programs cater to a variety of fitness levels and goals. Whether you're looking to lose weight, build muscle, improve flexibility, or enhance overall fitness, our programs offer tailored workouts designed to help you reach your objectives. Each program is carefully crafted by fitness experts to ensure effectiveness and safety. With a combination of cardio, strength training, flexibility exercises, and more, our programs provide a comprehensive approach to fitness that will keep you motivated and engaged.
+          </p>
+          <a href="">Read More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

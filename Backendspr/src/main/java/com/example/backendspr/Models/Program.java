@@ -1,13 +1,14 @@
 package com.example.backendspr.Models;
 
-import com.example.backendspr.models.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "program")
@@ -20,11 +21,17 @@ public class Program {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Enumerated(EnumType.STRING)
-    private com.example.backendspr.Models.EProgram programType;
+    private EProgram programType;
     private String title;
     private String description;
+    private Float prix;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY) // Assuming many programs can have one user
     @JoinColumn(name = "user_id") // Assuming this is the foreign key column in the programs table
     private User user;
+
+
+    @OneToMany(mappedBy = "program", cascade = CascadeType.ALL)
+    private List<Exercise> exercises = new ArrayList<>();
 }
