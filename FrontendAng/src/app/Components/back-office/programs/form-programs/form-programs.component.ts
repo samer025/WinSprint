@@ -38,12 +38,14 @@ export class FormProgramsComponent implements OnInit {
   }
 
   private initFormEdit() {
-    const { title, description, programType } = this.program;
+    const { title, description, programType,prix } = this.program;
 
     this.programForm = this.formBuilder.group({
       title: [title, [Validators.required, Validators.pattern(this.pattern), Validators.minLength(3)]],
       description: [description, [Validators.required]],
-      programType: [programType, Validators.required]
+      programType: [programType, Validators.required],
+      prix:[prix,[Validators.required]]
+
     });
   }
 
@@ -51,7 +53,8 @@ export class FormProgramsComponent implements OnInit {
     this.programForm = this.formBuilder.group({
       title: ['', [Validators.required, Validators.pattern(this.pattern), Validators.minLength(3)]],
       description: ['', [Validators.required]],
-      programType: [ProgramType.Fitness, Validators.required]
+      programType: [ProgramType.Fitness, Validators.required],
+      prix: ['', [Validators.required]],
     });
   }
 

@@ -11,6 +11,7 @@ export class Program {
   id!: string;
   title!: string;
   description!: string;
+  prix!:number;
   programType!: ProgramType;
   exercises!: Exercise[];
   user!: User;

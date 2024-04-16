@@ -24,6 +24,7 @@ public class Program {
     private EProgram programType;
     private String title;
     private String description;
+    private Float prix;
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY) // Assuming many programs can have one user

@@ -15,6 +15,9 @@
           <h6 class="fw-semibold mb-0">Description</h6>
         </th>
         <th class="border-bottom-0">
+          <h6 class="fw-semibold mb-0">Prix</h6>
+        </th>
+        <th class="border-bottom-0">
           <h6 class="fw-semibold mb-0">Exercises</h6>
         </th>
         <th class="border-bottom-0">
@@ -27,6 +30,7 @@
         <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ program.programType }}</h6></td>
         <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ program.title }}</h6></td>
         <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ program.description }}</h6></td>
+        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ program.prix }}</h6></td>
         <td class="border-bottom-0">
           <ul>
             <ng-container *ngIf="program.exercises.length <= 2 || showAllExercises; else showLimitedExercises">

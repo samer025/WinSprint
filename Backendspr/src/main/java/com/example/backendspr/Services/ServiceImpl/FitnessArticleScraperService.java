@@ -23,26 +23,31 @@ public class FitnessArticleScraperService {
     @Autowired
     private ArticleRepository articleRepository;
 
-    private static final String FITNESS_ARTICLES_URL = "https://www.bodybuilding.com/category/training";
+    private static final String FITNESS_ARTICLES_URL = "https://www.muscleandstrength.com/articles/interviews";
 
     @PostConstruct
     public void scrapeAndSaveFitnessArticles() {
         List<Article> articles = new ArrayList<>();
         try {
             Document doc = Jsoup.connect(FITNESS_ARTICLES_URL).get();
-            Elements articleElements = doc.select("#content-area > div > div.cms-article-list--container > span");
+            Elements articleElements = doc.select("div.taxonomy-featured");
 
             for (Element articleElement : articleElements) {
-                String articleLink = articleElement.select("a").attr("href");
-                String articleTitle = articleElement.select("h3.title").text();
-                String articleDescription = articleElement.select("span.description").text();
-                String imageUrl = extractImageUrl(articleElement);
+                String articleLink = articleElement.select("a.btn.btn-blue").attr("abs:href");
+                String articleTitle = articleElement.select("h5").text();
+                String articleDescription = articleElement.select("p").text();
+
+                String imageUrl = articleElement.select("img").attr("data-src");
+                if (imageUrl == null || imageUrl.isEmpty()) {
+                    // Fallback: If data-src is missing, try absolute URL
+                    imageUrl = articleElement.select("img").attr("abs:src");
+                }
 
                 Article article = new Article();
                 article.setTitle(articleTitle);
                 article.setDescription(articleDescription);
                 article.setLink(articleLink);
-                article.setImageUrl(imageUrl);
+                article.setImageUrl(imageUrl != null ? imageUrl : articleElement.select("img").attr("data-src"));
 
                 articles.add(article);
             }
@@ -52,10 +57,11 @@ public class FitnessArticleScraperService {
         }
 
         articleRepository.saveAll(articles);
+        System.out.print("Saved " + articles.size() + " articles to the database.");
     }
 
-    private String extractImageUrl(Element articleElement) {
-        Element imgElement = articleElement.select("a.thumb-container > div.thumb.lazyload-spinner > img").first();
+    /* private String extractImageUrl(Element articleElement) {
+        Element imgElement = articleElement.select("div.views-field-view-node-image img.views-field-view-node-image-url").first();
         if (imgElement != null) {
             String srcset = imgElement.attr("data-srcset");
             if (srcset != null && !srcset.isEmpty()) {
@@ -65,8 +71,8 @@ public class FitnessArticleScraperService {
                 return srcset.substring(0, endIndex);
             }
         }
-        return "";
-    }
+        return "";*/
+
 
 
 
