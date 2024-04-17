@@ -11,7 +11,7 @@ const routes: Routes = [
     component: BackOfficeComponent,
     children: [
       { path: 'programs', loadChildren: () => import('../../components/back-office/programs/programs.module').then(m => m.ProgramsModule) },
-      { path: 'exercices', loadChildren: () => import('../../components/back-office/exercices/exercices.module').then(m => m.ExercicesModule) }
+      { path: 'exercices', loadChildren: () => import('../../components/back-office/exercices/exercices.module').then(m => m.ExercicesModule) },
       { path: 'users', component: UserListComponent },
       { path: 'users/:id', component: EditUserComponent }
     ]
