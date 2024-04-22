@@ -49,25 +49,6 @@ export class FormExercicesComponent implements OnInit {
       image: ['']
     });
   }
-
-  onAddExercise() {
-    const formValue = this.exerciceForm.value;
-    const programId = 1; // Set the programId accordingly
-    this.exerciceServ.addExercise(formValue.nom, formValue.type, formValue.description, programId, this.file).subscribe(() => {
-      Swal.fire('Added', 'Exercise has been created successfully.', 'success');
-      this.router.navigate(['/backOffice/exercices']);
-    });
-  }
-
-  onUpdateExercise() {
-    const formValue = this.exerciceForm.value;
-    const id = this.currentRoute.snapshot.params['id'];
-    this.exerciceServ.updateExercise(id, formValue.nom, formValue.type, formValue.description, this.file).subscribe(() => {
-      Swal.fire('Updated', 'Exercise has been updated successfully.', 'success');
-      this.router.navigate(['/backOffice/exercices']);
-    });
-  }
-
   onSubmit() {
     Swal.fire({
       title: this.editMode ? 'Are you sure you want to update this exercise?' : 'Are you sure you want to add this exercise?',

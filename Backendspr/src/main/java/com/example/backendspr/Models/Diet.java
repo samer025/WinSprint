@@ -3,7 +3,7 @@ package com.example.backendspr.Models;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Getter
@@ -12,22 +12,21 @@ import java.io.Serializable;
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
-@Table( name = "Food")
-public class Food implements Serializable {
-
+@Table( name = "Diet")
+public class Diet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
 
     private String description;
 
     @Enumerated(EnumType.STRING)
-    private FoodType type;
+    private DietType type;
 
-    @Lob
-    @Column(length = 1000000)
-    private byte[] image;
+    @ManyToMany
+    private List<Food> foods;
 
 
 }

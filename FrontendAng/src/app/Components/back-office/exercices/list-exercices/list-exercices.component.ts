@@ -1,7 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Program} from "../../../../Core/Models/program";
 import {Exercise} from "../../../../Core/Models/exercice";
-import {ProgramService} from "../../../../Core/Services/program.service";
 import {Router} from "@angular/router";
 import {ExerciseService} from "../../../../Core/Services/exercice.service";
 

@@ -25,10 +25,26 @@ public class FoodServiceImpl implements FoodService {
         return foodRepository.findById(id);
     }
 
+
     @Override
-    public Food saveOrUpdateFood(Food food) {
-        return foodRepository.save(food);
+    public Food updateFood(Long id, Food food) {
+        // Check if the food with the given ID exists
+        Optional<Food> optionalFood = foodRepository.findById(id);
+        if (optionalFood.isPresent()) {
+            // Update the food's details
+            food.setId(id); // Set the ID of the food to be updated
+            return foodRepository.save(food);
+        } else {
+            throw new IllegalArgumentException("Food with id " + id + " does not exist!");
+        }
     }
+
+
+    @Override
+    public Food addFood(Food food) {
+            return foodRepository.save(food);
+    }
+
 
     @Override
     public void deleteFood(Long id) {

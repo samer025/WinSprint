@@ -1,0 +1,23 @@
+<div class="card-body">
+  <form *ngIf="foodForm" [formGroup]="foodForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" class="form-control" id="name" formControlName="name" required>
+    </div>
+    <div class="mb-3">
+      <label for="type" class="form-label">Type</label>
+      <select class="form-select" id="type" formControlName="type" required>
+        <option *ngFor="let type of foodTypes" [value]="type">{{ type }}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea class="form-control" id="description" formControlName="description" required></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="image" class="form-label">Image</label>
+      <input type="file" class="form-control" id="image" (change)="onFileSelected($event)">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

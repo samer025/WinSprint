@@ -1,0 +1,51 @@
+<div class="card-body p-4">
+  <h5 class="card-title fw-semibold mb-4">Diets List</h5>
+  <button class="btn btn-primary mb-3" routerLink="/backOffice/diets/add">Add Diet</button>
+  <div class="table-responsive">
+    <table class="table text-nowrap mb-0 align-middle">
+      <thead class="text-dark fs-4">
+      <tr>
+        <th class="border-bottom-0">
+          <h6 class="fw-semibold mb-0">Name</h6>
+        </th>
+        <th class="border-bottom-0">
+          <h6 class="fw-semibold mb-0">Description</h6>
+        </th>
+        <th class="border-bottom-0">
+          <h6 class="fw-semibold mb-0">Type</h6>
+        </th>
+        <th class="border-bottom-0">
+          <h6 class="fw-semibold mb-0">Foods</h6>
+        </th>
+        <th class="border-bottom-0">
+          <h6 class="fw-semibold mb-0">Actions</h6>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let diet of diets">
+        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ diet.name }}</h6></td>
+        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ diet.description }}</h6></td>
+        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ diet.type }}</h6></td>
+        <td class="border-bottom-0">
+          <ul>
+            <ng-container *ngIf="diet.foods.length <= 2 || showAllFoods; else showLimitedFoods">
+              <li *ngFor="let food of diet.foods">{{ food.name }}</li>
+            </ng-container>
+            <ng-template #showLimitedFoods>
+              <li *ngFor="let food of diet.foods.slice(0, 2)">{{ food.name }}</li>
+            </ng-template>
+          </ul>
+          <span *ngIf="diet.foods.length > 2" class="text-primary" (click)="toggleShowAllFoods()" style="cursor: pointer;">
+              {{ showAllFoods ? 'Show less' : 'Show more' }}
+            </span>
+        </td>
+        <td class="border-bottom-0">
+          <button class="btn btn-primary btn-sm me-2" [routerLink]="['/backOffice/diets/edit', diet.id]">Update</button>
+          <button class="btn btn-danger btn-sm me-2" (click)="deleteDiet(diet.id)">Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

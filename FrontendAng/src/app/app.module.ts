@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 
 import {FormsModule} from "@angular/forms";
-import { BmiCalculatorComponent } from './bmi-calculator/bmi-calculator.component';
 
 import { LoginComponent } from './components/front-office/components/Login/Login.component';
 import { RegisterComponent } from './components/front-office/components/Register/Register.component';

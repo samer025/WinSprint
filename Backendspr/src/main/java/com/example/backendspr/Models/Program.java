@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +28,7 @@ public class Program {
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY) // Assuming many programs can have one user
     @JoinColumn(name = "user_id") // Assuming this is the foreign key column in the programs table
-    private User user;
+    private com.example.backendspr.models.User user;
 
 
     @OneToMany(mappedBy = "program", cascade = CascadeType.ALL)

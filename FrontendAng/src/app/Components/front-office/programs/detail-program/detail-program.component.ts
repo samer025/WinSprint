@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Program} from "../../../../Core/Models/program";
 import {ProgramService} from "../../../../Core/Services/program.service";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -12,7 +12,7 @@ import {Exercise} from "../../../../Core/Models/exercice";
   templateUrl: './detail-program.component.html',
   styleUrls: ['./detail-program.component.css']
 })
-export class DetailProgramComponent {
+export class DetailProgramComponent implements OnInit{
   program!: Program;
 
   constructor(private programServ: ProgramService,private router: Router,  private currentRoute: ActivatedRoute)
