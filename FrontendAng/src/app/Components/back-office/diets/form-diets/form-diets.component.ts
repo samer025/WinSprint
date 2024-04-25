@@ -53,6 +53,7 @@ export class FormDietsComponent implements OnInit {
     this.dietForm = this.fb.group({
       name: ['', [Validators.required, Validators.pattern(this.pattern), Validators.minLength(3)]],
       description: ['', [Validators.required]],
+      prix:['',[Validators.required]],
       type: ['', [Validators.required]],
       foods: [[]]
     });
@@ -95,6 +96,7 @@ export class FormDietsComponent implements OnInit {
           id: 0, // Assuming the ID will be assigned by the backend
           name: formValue.name,
           description: formValue.description,
+          prix:formValue.prix,
           type: formValue.type,
           foods: formValue.foods
         };

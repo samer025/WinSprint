@@ -5,6 +5,7 @@ export interface Diet {
   name: string;
   description: string;
   type: DietType;
+  prix:number;
   foods: Food[]; // Array of Food IDs
 }
 

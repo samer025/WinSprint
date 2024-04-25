@@ -10,6 +10,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from '../../components/front-office/shared/home/home.component';
 import {BmiCalculatorComponent} from "./bmi-calculator/bmi-calculator.component";
+import {ListRecipesComponent} from "./recipes/list-recipes/list-recipes.component";
+import {RecipesComponent} from "./recipes/recipes.component";
 
 
 
@@ -20,7 +22,9 @@ import {BmiCalculatorComponent} from "./bmi-calculator/bmi-calculator.component"
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    BmiCalculatorComponent
+    BmiCalculatorComponent,
+    RecipesComponent,
+    ListRecipesComponent,
   ],
   exports: [
     HeaderComponent

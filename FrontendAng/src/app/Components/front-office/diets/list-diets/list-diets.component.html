@@ -6,7 +6,9 @@
         <div class="card-body">
           <h5 class="card-title">{{ diet.name }}</h5>
           <p class="card-text">{{ diet.description }}</p>
-          <button class="btn btn-primary" [routerLink]="['detail', diet.id]">Show More</button>
+          <input (click)="pay(diet.prix,diet.id)" type="submit" name="submit" class="btn btn-success" value="Pay for {{diet.prix}} " />
+
+
 
         </div>
       </div>

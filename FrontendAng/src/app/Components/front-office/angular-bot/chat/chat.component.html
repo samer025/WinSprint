@@ -1,0 +1,32 @@
+<section class="chat_window layout_padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="chat_container">
+          <h2>Chat Bot</h2>
+
+          <div class="message_list">
+            <ng-container *ngFor="let message of messages">
+              <div class="message" [ngClass]="{from: message.author === 'bot',to: message.author === 'user'}">
+                {{ message.content }}
+              </div>
+            </ng-container>
+          </div>
+
+          <div class="message_input">
+            <label for="messageField">Send a message:</label>
+            <input [(ngModel)]="value" type="text" id="messageField" />
+            <button (click)="sendMessage()">Send</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="chat_info" *ngIf="messages.length > 0">
+          <h2>Chat Summary</h2>
+          <p>Total Messages: {{ messages.length }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

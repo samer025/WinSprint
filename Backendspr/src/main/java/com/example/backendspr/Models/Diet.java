@@ -24,6 +24,7 @@ public class Diet {
 
     @Enumerated(EnumType.STRING)
     private DietType type;
+    private Float prix;
 
     @ManyToMany
     private List<Food> foods;

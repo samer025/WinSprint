@@ -12,6 +12,9 @@
           <h6 class="fw-semibold mb-0">Description</h6>
         </th>
         <th class="border-bottom-0">
+          <h6 class="fw-semibold mb-0">Prix</h6>
+        </th>
+        <th class="border-bottom-0">
           <h6 class="fw-semibold mb-0">Type</h6>
         </th>
         <th class="border-bottom-0">
@@ -26,6 +29,7 @@
       <tr *ngFor="let diet of diets">
         <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ diet.name }}</h6></td>
         <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ diet.description }}</h6></td>
+        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ diet.prix }}</h6></td>
         <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ diet.type }}</h6></td>
         <td class="border-bottom-0">
           <ul>

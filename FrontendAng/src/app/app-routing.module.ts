@@ -3,11 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './components/front-office/components/Register/Register.component';
 import { LoginComponent } from './components/front-office/components/Login/Login.component';
 import { AuthGuard } from './Components/front-office/shared/AuthGuard/AuthGuard.guard';
+import {CalorieCalculatorComponent} from "./Components/front-office/calorie-calculator/calorie-calculator.component";
+import {ChatComponent} from "./Components/front-office/angular-bot/chat/chat.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'register', pathMatch: 'full' }, // Redirect to register by default
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'chat', component: ChatComponent},
+  { path: 'calories', component: CalorieCalculatorComponent},
   {
     path: 'frontOffice',
     loadChildren: () => import('./components/front-office/front-office.module').then(m => m.FrontOfficeModule),

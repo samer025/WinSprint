@@ -24,6 +24,10 @@
           <option *ngFor="let food of foods" [value]="food" [selected]="isFoodSelected(food, dietForm.value?.foods)">{{ food.name }}</option>
         </select>
       </div>
+      <div class="mb-3">
+        <label for="prix" class="form-label">Prix</label>
+        <input type="text" class="form-control" id="prix" formControlName="prix" required>
+      </div>
       <button type="submit" class="btn btn-primary">{{ editMode ? 'Update' : 'Add' }}</button>
     </form>
   </div>
