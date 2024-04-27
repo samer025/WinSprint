@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'chat', component: ChatComponent},
-  { path: 'calories', component: CalorieCalculatorComponent},
+
   {
     path: 'frontOffice',
     loadChildren: () => import('./components/front-office/front-office.module').then(m => m.FrontOfficeModule),

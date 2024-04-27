@@ -4,6 +4,8 @@ import { FrontOfficeComponent } from './front-office.component';
 import {BmiCalculatorComponent} from "./bmi-calculator/bmi-calculator.component";
 import {HomeComponent} from "./shared/home/home.component";
 import {ListRecipesComponent} from "./recipes/list-recipes/list-recipes.component";
+import {CalorieCalculatorComponent} from "../../Components/front-office/calorie-calculator/calorie-calculator.component";
+
 
 const routes: Routes = [
   { path: '',
@@ -11,6 +13,7 @@ const routes: Routes = [
     children: [
       { path: '', component: HomeComponent },
       { path: 'bmi', component: BmiCalculatorComponent },
+      { path: 'calories', component: CalorieCalculatorComponent},
       {path:'recipes',
         component:ListRecipesComponent},
       { path: 'programs', loadChildren: () => import('../../components/front-office/programs/programs.module').then(m => m.ProgramsModule) },

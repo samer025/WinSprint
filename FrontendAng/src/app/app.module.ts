@@ -10,7 +10,7 @@ import {FormsModule} from "@angular/forms";
 import { LoginComponent } from './components/front-office/components/Login/Login.component';
 import { RegisterComponent } from './components/front-office/components/Register/Register.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import {CalorieCalculatorComponent} from "./Components/front-office/calorie-calculator/calorie-calculator.component";
+
 import {AngularBotModule} from "./Components/front-office/angular-bot/angular-bot.module";
 
 @NgModule({
@@ -18,7 +18,7 @@ import {AngularBotModule} from "./Components/front-office/angular-bot/angular-bo
     AppComponent,
     RegisterComponent,
     LoginComponent,
-      CalorieCalculatorComponent
+
   ],
     imports: [
         BrowserModule,

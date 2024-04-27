@@ -12,6 +12,7 @@ import { HomeComponent } from '../../components/front-office/shared/home/home.co
 import {BmiCalculatorComponent} from "./bmi-calculator/bmi-calculator.component";
 import {ListRecipesComponent} from "./recipes/list-recipes/list-recipes.component";
 import {RecipesComponent} from "./recipes/recipes.component";
+import {CalorieCalculatorComponent} from "../../Components/front-office/calorie-calculator/calorie-calculator.component";
 
 
 
@@ -25,6 +26,7 @@ import {RecipesComponent} from "./recipes/recipes.component";
     BmiCalculatorComponent,
     RecipesComponent,
     ListRecipesComponent,
+    CalorieCalculatorComponent
   ],
   exports: [
     HeaderComponent
