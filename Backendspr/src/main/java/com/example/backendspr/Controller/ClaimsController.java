@@ -1,68 +1,70 @@
-package com.coco.pibackend.Controller;
+package com.example.backendspr.Controller;
 
-import com.coco.pibackend.Entity.Claims;
-import com.coco.pibackend.Enum.StatusClaims;
-import com.coco.pibackend.Enum.TypeClaim;
-import com.coco.pibackend.Service.ClaimsServices;
+
+import com.example.backendspr.Models.Claims;
+import com.example.backendspr.Models.TypeClaim;
+import com.example.backendspr.Services.ServiceImpl.ClaimsServices;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 import org.springframework.data.domain.Page;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 import java.util.Map;
+
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
     public class ClaimsController {
     @Autowired
     ClaimsServices claimService;
 
-    @PostMapping("/addClaim")
-    @CrossOrigin(origins = "http://localhost:4200")
+    @PostMapping("/api/addClaim")
+    @CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*")
     public Claims AddClaim(@RequestBody Claims claims) {
 
         return claimService.addClaims(claims);
 
     }
-    @GetMapping("/GetALLClaims")
+    @GetMapping("/api/GetALLClaims")
     @CrossOrigin(origins = "http://localhost:4200")
     public List<Claims> GetALLClaims(){
         return claimService.GetClaims();
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @GetMapping("/findByUser/{id}")
-    public List<Claims> findByUser(@PathVariable("id") Integer id){
+    @GetMapping("/api/findByUser/{id}")
+    public List<Claims> findByUser(@PathVariable("id") Long id){
         return claimService.findByUser(id);
     }
 
 
-    @GetMapping("/GetClaimsById/{idClaims}")
+    @GetMapping("/api/GetClaimsById/{idClaims}")
     @CrossOrigin(origins = "http://localhost:4200")
     public  Claims GetClaimsById(@PathVariable Integer idClaims){
         return claimService.getClaimsById(idClaims);
     }
     
-    @PutMapping("/statusClaims/{idClaims}/{status}")
+    @PutMapping("/api/statusClaims/{idClaims}/{status}")
     @CrossOrigin(origins = "http://localhost:4200")
     public Claims statusClaims(@PathVariable("idClaims") Integer idClaims,@PathVariable("status") String status) {
         return claimService.statusClaims(idClaims,status);
     }
-    @DeleteMapping("/DeleteClaims/{idClaims}")
+    @DeleteMapping("/api/DeleteClaims/{idClaims}")
     @CrossOrigin(origins = "http://localhost:4200")
     public void Delete(@PathVariable Integer idClaims){
          claimService.deleteClaims( idClaims);
     }
 
-    @PutMapping("/UpdateClaims")
+    @PutMapping("/api/UpdateClaims")
     @CrossOrigin(origins = "http://localhost:4200")
     public Claims UpdateClaims(@RequestBody Claims claims) {
       return  claimService.Update(claims);
 
     }
-    @GetMapping("/claims/page")
+    @GetMapping("/api/claims/page")
     public Page<Claims> getClaimsByPage(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "3") int size) {
         return claimService.getClaimsWithPagination(page, size);
     }
-    @GetMapping("/calculateClaimPercentage")
+    @GetMapping("/api/calculateClaimPercentage")
     @CrossOrigin(origins = "http://localhost:4200")
    public Map<TypeClaim, Double> calculateClaimPercentage(){
         return claimService.calculateClaimPercentage();

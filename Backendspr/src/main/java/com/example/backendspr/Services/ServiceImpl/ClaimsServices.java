@@ -1,42 +1,38 @@
-package com.coco.pibackend.Service;
+package com.example.backendspr.Services.ServiceImpl;
 
-import com.coco.pibackend.Entity.Claims;
-import com.coco.pibackend.Entity.User;
-import com.coco.pibackend.Enum.StatusClaims;
-import com.coco.pibackend.Enum.TypeClaim;
-import com.coco.pibackend.Repo.ClaimsRepository;
-import com.coco.pibackend.Repo.UserRepository;
-import lombok.AllArgsConstructor;
+
+import com.example.backendspr.Models.Claims;
+import com.example.backendspr.Models.StatusClaims;
+import com.example.backendspr.Models.TypeClaim;
+import com.example.backendspr.Repositories.ClaimsRepository;
+import com.example.backendspr.Repositories.UserRepository;
+import com.example.backendspr.Services.Interfaces.ClaimService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.messaging.core.MessageSendingOperations;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.*;
-import com.twilio.Twilio;
-import com.twilio.rest.api.v2010.account.Message;
-import com.twilio.type.PhoneNumber;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
+
 @Service
-@AllArgsConstructor
 public class ClaimsServices implements ClaimService {
-    private final String ACCOUNT_SID = "AC81907b120a7f0324b879cccf07a26746";
-    private final String AUTH_TOKEN = "3784ab1b875a85ebd5de23a3473c556f";
-    private final String TWILIO_PHONE_NUMBER = "+12567334733";
+
     @Autowired
     ClaimsRepository claimsRepository;
+    @Autowired
     UserRepository UserRepository;
-    private MessageSendingOperations<String> wsTemplate;
+
     @Override
-    public Claims addClaims( Claims claims) {
-        Optional<User> u=UserRepository.findById(claims.getUser().getId_user());
+    public Claims addClaims(Claims claims) {
+        Optional<com.example.backendspr.Models.User> u=UserRepository.findById(1L);
         if(u.isPresent()){
 
         claims.setUser(u.get());
         claims.setCreatedAt(LocalDateTime.now());
         claims.setStatusClaims(StatusClaims.valueOf("Pending"));
-        wsTemplate.convertAndSend("/topic/notification/" ,  u.get().getUsername()+" a ajouté une nouvelle reclamtion");
+
 
             return claimsRepository.save(claims);}
         return null;
@@ -57,8 +53,8 @@ public class ClaimsServices implements ClaimService {
         return claimsRepository.findAll(pageRequest);
     }
     @Override
-    public List<Claims> findByUser(Integer id) {
-        Optional<User> u =UserRepository.findById(id);
+    public List<Claims> findByUser(Long id) {
+        Optional<com.example.backendspr.Models.User> u =UserRepository.findById(id);
         if(u.isPresent()){
             return claimsRepository.findByUser(u.get());
         }
@@ -67,7 +63,7 @@ public class ClaimsServices implements ClaimService {
 
     @Override
    public Claims statusClaims(Integer idClaims, String status) {
-        Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+
         String m=null;
        Claims treatedClaim= claimsRepository.findByIdClaims(idClaims);
 
@@ -83,11 +79,7 @@ public class ClaimsServices implements ClaimService {
            m="Votre réclamation est entrain de process";
        }
         treatedClaim.setConsultAt(LocalDateTime.now());
-        Message message = Message.creator(
-                        new PhoneNumber("+21658218173"),
-                        new PhoneNumber(TWILIO_PHONE_NUMBER),
-                        m)
-                .create();
+
         return claimsRepository.save(treatedClaim);
     }
     @Override

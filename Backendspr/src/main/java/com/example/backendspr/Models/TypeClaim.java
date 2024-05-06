@@ -1,8 +1,8 @@
-package com.coco.pibackend.Enum;
+package com.example.backendspr.Models;
 
 public enum TypeClaim {
     Other,
-    CARPOLING,
-    COLLOCATION,
-    Post
+    Workout,
+    Nutrition,
+    Equipment
 }

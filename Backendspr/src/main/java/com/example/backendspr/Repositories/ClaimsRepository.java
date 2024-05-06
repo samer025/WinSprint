@@ -1,12 +1,12 @@
-package com.coco.pibackend.Repo;
+package com.example.backendspr.Repositories;
 
-import com.coco.pibackend.Entity.Claims;
-import com.coco.pibackend.Entity.User;
+
+import com.example.backendspr.Models.Claims;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
 public interface ClaimsRepository extends JpaRepository<Claims, Integer> {
     public Claims findByIdClaims (Integer idClaims);
-    List<Claims> findByUser(User u);
+    List<Claims> findByUser(com.example.backendspr.Models.User u);
 }

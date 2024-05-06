@@ -1,7 +1,6 @@
-package com.coco.pibackend.Entity;
+package com.example.backendspr.Models;
 
-import com.coco.pibackend.Enum.StatusClaims;
-import com.coco.pibackend.Enum.TypeClaim;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -33,6 +32,7 @@ public class Claims implements Serializable {
     private LocalDateTime CreatedAt;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDateTime   ConsultAt;
+
     @ManyToOne
     private User user;
 
