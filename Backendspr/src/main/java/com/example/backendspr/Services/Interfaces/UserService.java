@@ -1,7 +1,7 @@
 package com.example.backendspr.Services.Interfaces;
 
 import com.example.backendspr.Models.UserDTO;
-import com.example.backendspr.models.User;
+import com.example.backendspr.Models.User;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
