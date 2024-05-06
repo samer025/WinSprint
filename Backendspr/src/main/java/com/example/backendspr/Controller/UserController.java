@@ -1,7 +1,7 @@
 package com.example.backendspr.Controller;
 
 import com.example.backendspr.Repositories.UserRepository;
-import com.example.backendspr.models.User;
+import com.example.backendspr.Models.User;
 import com.example.backendspr.Models.UserDTO;
 import com.example.backendspr.Services.Interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

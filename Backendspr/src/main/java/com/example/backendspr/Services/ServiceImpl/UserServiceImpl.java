@@ -1,7 +1,8 @@
 package com.example.backendspr.Services.ServiceImpl;
 
 
-import com.example.backendspr.models.User;
+
+import com.example.backendspr.Models.User;
 import com.example.backendspr.Models.UserDTO;
 import com.example.backendspr.Repositories.UserRepository;
 import com.example.backendspr.Services.Interfaces.UserService;

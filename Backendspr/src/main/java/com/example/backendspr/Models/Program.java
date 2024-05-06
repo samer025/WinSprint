@@ -28,7 +28,7 @@ public class Program {
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY) // Assuming many programs can have one user
     @JoinColumn(name = "user_id") // Assuming this is the foreign key column in the programs table
-    private com.example.backendspr.models.User user;
+    private User user;
 
 
     @OneToMany(mappedBy = "program", cascade = CascadeType.ALL)

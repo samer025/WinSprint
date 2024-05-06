@@ -3,7 +3,7 @@ package com.example.backendspr.Controller;
 
 import com.example.backendspr.Models.ERole;
 import com.example.backendspr.Models.Role;
-import com.example.backendspr.models.User;
+import com.example.backendspr.Models.User;
 import com.example.backendspr.Repositories.RoleRepository;
 import com.example.backendspr.Repositories.UserRepository;
 import com.example.backendspr.Services.ServiceImpl.UserServiceImpl;

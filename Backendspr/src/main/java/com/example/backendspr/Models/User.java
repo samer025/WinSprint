@@ -1,5 +1,7 @@
-package com.example.backendspr.models;
+package com.example.backendspr.Models;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -42,6 +44,8 @@ public class User {
 
     private String phone;
 
+
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(  name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
@@ -50,6 +54,7 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private Set<com.example.backendspr.Models.Program> programs = new HashSet<>();
+
 
 
     public User(String username, String email, String password) {
