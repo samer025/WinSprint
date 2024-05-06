@@ -1,0 +1,29 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Diets List</h2>
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div *ngFor="let diet of pagedDiets" class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">{{ diet.name }}</h5>
+          <p class="card-text">{{ diet.description }}</p>
+          <input (click)="pay(diet.prix,diet.id)" type="submit" name="submit" class="btn btn-success" value="Pay for {{diet.prix}} " />
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-md-6 offset-md-3">
+      <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+          <li class="page-item" *ngFor="let _ of Array.from({ length: totalPages }); let i = index"
+              [class.active]="currentPage === i">
+            <a class="page-link" (click)="changePage(i)">{{ i + 1 }}</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>

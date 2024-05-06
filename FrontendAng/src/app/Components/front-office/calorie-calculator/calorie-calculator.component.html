@@ -1,0 +1,69 @@
+<section class="calorie_calculator layout_padding">
+  <div class=" container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="calculator_container">
+          <h2>TDEE Calculator</h2>
+          <form [formGroup]="userForm" (ngSubmit)="calculateCalories()">
+            <div class="form-group">
+              <label for="age">Age (years):</label>
+              <input type="number" id="age" formControlName="age" required>
+            </div>
+            <div class="form-group">
+              <label for="weight">Weight (kg):</label>
+              <input type="number" id="weight" formControlName="weight" required>
+            </div>
+            <div class="form-group">
+              <label for="height">Height (cm):</label>
+              <input type="number" id="height" formControlName="height" required>
+            </div>
+            <div class="form-group">
+              <label for="gender">Gender:</label>
+              <select id="gender" formControlName="gender" required>
+                <option value="">Select</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="activityLevel">Activity Level:</label>
+              <select id="activityLevel" formControlName="activityLevel" required>
+                <option value="">Select</option>
+                <option *ngFor="let level of activityLevels">{{ level }}</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="goal">Goal:</label>
+              <select id="goal" formControlName="goal" required>
+                <option value="">Select</option>
+                <option *ngFor="let goal of goals">{{ goal }}</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Calculate Calories</button>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="results_container" *ngIf="calculatedCalories > 0">
+          <h2>Your Total Daily Energy Expenditure: {{ calculatedCalories }}</h2>
+          <h3>Macro Breakdown:</h3>
+          <ul>
+            <li *ngFor="let macro of breakfastMacros">
+              {{ macro.name }}: {{ macro.value | number:'1.0-0' }}
+            </li>
+          </ul>
+        </div>
+        <div class="description_box">
+          <h2>
+            About Our <br> TDEE Calculator
+          </h2>
+          <p>
+            This TDEE Calculator provides an estimated number of daily calories you need to reach your fitness goals. By entering your age, weight, height, activity level, and goal (lose weight, gain weight, or maintain weight), the calculator uses the Harris-Benedict equation to determine your Basal Metabolic Rate (BMR) and adjusts it based on your activity level and goal.
+          </p>
+          <a href="">Learn More About Calorie Intake</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

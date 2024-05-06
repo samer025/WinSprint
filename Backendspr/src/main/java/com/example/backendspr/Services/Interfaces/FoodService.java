@@ -10,7 +10,8 @@ public interface FoodService {
 
     Optional<Food> getFoodById(Long id);
 
-    Food saveOrUpdateFood(Food food);
+    Food addFood(Food food);
+    Food updateFood(Long id,Food food);
 
     void deleteFood(Long id);
 }

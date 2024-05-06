@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FrontOfficeComponent } from './front-office.component';
-import { HomeComponent } from './components/Home/Home.component';
-import {BmiCalculatorComponent} from "../../bmi-calculator/bmi-calculator.component";
+import {BmiCalculatorComponent} from "./bmi-calculator/bmi-calculator.component";
+import {HomeComponent} from "./shared/home/home.component";
+import {ListRecipesComponent} from "./recipes/list-recipes/list-recipes.component";
+import {CalorieCalculatorComponent} from "../../Components/front-office/calorie-calculator/calorie-calculator.component";
+import {ChatBotComponent} from "./chat-bot/chat-bot.component";
+
 
 const routes: Routes = [
   { path: '',
@@ -10,9 +14,15 @@ const routes: Routes = [
     children: [
       { path: '', component: HomeComponent },
       { path: 'bmi', component: BmiCalculatorComponent },
+      { path: 'calories', component: CalorieCalculatorComponent},
+      {path:'recipes',
+        component:ListRecipesComponent},
+      { path: 'chatbot', component: ChatBotComponent },
       { path: 'programs', loadChildren: () => import('../../components/front-office/programs/programs.module').then(m => m.ProgramsModule) },
       { path: 'articles', loadChildren: () => import('../../components/front-office/articles/articles.module').then(m => m.ArticlesModule) },
+      { path: 'diets', loadChildren: () => import('./diets/diets.module').then(m => m.DietsModule) },
     ] },
+
 
 ];
 

@@ -18,9 +18,17 @@ public class Food implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nom;
-    private Integer qte;
-    private String conseil;
+    private String name;
+
+    private String description;
+
+    @Enumerated(EnumType.STRING)
+    private FoodType type;
+
+    @Lob
+    @Column(length = 1000000)
+    private byte[] image;
+
 
 }
 

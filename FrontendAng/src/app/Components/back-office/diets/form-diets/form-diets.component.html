@@ -1,0 +1,34 @@
+<div class="card">
+  <div class="card-header">
+    <h5 class="card-title">{{ editMode ? 'Edit Diet' : 'Add Diet' }}</h5>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="dietForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" formControlName="name" required>
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="description" formControlName="description" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="type" class="form-label">Type</label>
+        <select class="form-select" id="type" formControlName="type" required>
+          <option *ngFor="let type of dietTypes" [value]="type">{{ type }}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="foods" class="form-label">Foods</label>
+        <select multiple class="form-select" id="foods" formControlName="foods" required>
+          <option *ngFor="let food of foods" [value]="food" [selected]="isFoodSelected(food, dietForm.value?.foods)">{{ food.name }}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="prix" class="form-label">Prix</label>
+        <input type="text" class="form-control" id="prix" formControlName="prix" required>
+      </div>
+      <button type="submit" class="btn btn-primary">{{ editMode ? 'Update' : 'Add' }}</button>
+    </form>
+  </div>
+</div>

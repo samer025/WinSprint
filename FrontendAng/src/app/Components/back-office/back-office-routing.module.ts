@@ -12,6 +12,8 @@ const routes: Routes = [
     children: [
       { path: 'programs', loadChildren: () => import('../../components/back-office/programs/programs.module').then(m => m.ProgramsModule) },
       { path: 'exercices', loadChildren: () => import('../../components/back-office/exercices/exercices.module').then(m => m.ExercicesModule) },
+      { path: 'foods', loadChildren: () => import('../../components/back-office/foods/foods.module').then(m => m.FoodsModule) },
+      { path: 'diets', loadChildren: () => import('../../components/back-office/diets/diets.module').then(m => m.DietsModule) },
       { path: 'users', component: UserListComponent },
       { path: 'users/:id', component: EditUserComponent }
     ]
