@@ -6,6 +6,7 @@ import {HomeComponent} from "./shared/home/home.component";
 import {ListRecipesComponent} from "./recipes/list-recipes/list-recipes.component";
 import {CalorieCalculatorComponent} from "../../Components/front-office/calorie-calculator/calorie-calculator.component";
 import {ChatBotComponent} from "./chat-bot/chat-bot.component";
+import {QuizComponent} from "./quiz/quiz.component";
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
       {path:'recipes',
         component:ListRecipesComponent},
       { path: 'chatbot', component: ChatBotComponent },
+      {path:'quiz',component:QuizComponent},
       { path: 'programs', loadChildren: () => import('../../components/front-office/programs/programs.module').then(m => m.ProgramsModule) },
       { path: 'articles', loadChildren: () => import('../../components/front-office/articles/articles.module').then(m => m.ArticlesModule) },
       { path: 'diets', loadChildren: () => import('./diets/diets.module').then(m => m.DietsModule) },

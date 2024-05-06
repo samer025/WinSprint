@@ -1,0 +1,17 @@
+<h2>Bodytype Quiz</h2>
+
+<div *ngFor="let question of questions">
+  <p>{{ question.text }}</p>
+  <div class="form-group">
+    <label *ngFor="let option of question.options">
+      <input type="radio" name="{{ question.text }}" [(ngModel)]="question.selectedValue" [value]="option.value">
+      {{ option.text }}
+    </label>
+  </div>
+</div>
+<button (click)="calculateScore()">Calculate Results</button>
+<div *ngIf="result">
+  <h3>{{ result.title }}</h3>
+  <p>{{ result.message }}</p>
+</div>
+

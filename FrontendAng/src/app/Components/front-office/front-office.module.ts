@@ -14,8 +14,7 @@ import {ListRecipesComponent} from "./recipes/list-recipes/list-recipes.componen
 import {RecipesComponent} from "./recipes/recipes.component";
 import {CalorieCalculatorComponent} from "../../Components/front-office/calorie-calculator/calorie-calculator.component";
 import { ChatBotComponent } from '../../components/front-office/chat-bot/chat-bot.component';
-
-
+import {QuizComponent} from "./quiz/quiz.component";
 
 
 @NgModule({
@@ -28,7 +27,8 @@ import { ChatBotComponent } from '../../components/front-office/chat-bot/chat-bo
     RecipesComponent,
     ListRecipesComponent,
     CalorieCalculatorComponent,
-    ChatBotComponent
+    ChatBotComponent,
+    QuizComponent,
   ],
   exports: [
     HeaderComponent
