@@ -1,6 +1,6 @@
 {
   "intents": [
-    {
+    { 
       "tag": "greeting",
       "patterns": [
         "Hi",
@@ -47,32 +47,33 @@
     {
       "tag": "delivery",
       "patterns": [
-        "How long does delivery take?",
+        "can i have lifetime access to my purchased programs?",
         "How long does shipping take?",
         "When do I get my delivery?"
       ],
       "responses": [
-        "Delivery takes 2-4 days",
+        "we will contact you for confirmation",
         "Shipping takes 2-4 days"
       ]
     },
     {
       "tag": "crops",
       "patterns": [
-        "What categories of crops are available in the marketplace?",
-        "What are the different types of crops I can find in the marketplace?",
-        "Can you tell me about the crop categories available in the marketplace?"
+        "What categories of products are available in the marketplace?",
+        "What are the different types of products I can find in the marketplace?",
+        "Can you tell me about the products categories available in the marketplace?",
+        "what can i find in marketplace?"
       ],
       "responses": [
-        "There are several categories of crops available in the marketplace, including fruits, vegetables, grains, and herbs/spices.",
-        "You can find a wide variety of crops in the marketplace, including fruits like apples and oranges, vegetables like tomatoes and cucumbers, grains like wheat and rice, and herbs and spices like basil and cinnamon.",
-        "Some of the categories of crops available in the marketplace include fruits, vegetables, grains, and herbs/spices. You can find many different types of crops in each of these categories."
+        "There are several categories of products available in the marketplace, including whey protein,bcaa,multivitamins and fat burners.",
+        "You can find a wide variety of crops in the marketplace, including whey protein,bcaa,multivitamins and fat burners.",
+        "Some of the categories of crops available in the marketplace include whey protein,bcaa,multivitamins and fat burners. You can find many different types of products in each of these categories."
       ]
     },
     {
       "tag": "discounts",
       "patterns": [
-        "Are there any discounts available on your app's marketplace?",
+        "Are there any discounts available on your app?",
         "Can I get a discount on products purchased through your app's marketplace?",
         "Is there any special pricing for products on your app's marketplace?"
       ],
@@ -85,22 +86,20 @@
     {
       "tag": "farmer_features",
       "patterns": [
-        "What farmer-specific features are available on your app?",
-        "Can farmers use your app for anything specific?",
-        "What tools do you offer for farmers on your app?"
+        "What services can provide your app?",
+        "What tools do you offer on your app?"
       ],
       "responses": [
-        "The app has features for farmers such as viewing the latest agricultural news, adding and sharing articles, and accessing previously posted articles.",
-        "As a farmer, you can use our app to stay up-to-date on the latest agricultural news, share your own experiences and insights by adding articles, and easily access all of your previously posted articles.",
-        "We have developed several tools specifically for farmers on our app, including the ability to view the latest agricultural news, add articles to share your own experiences, and view all of your previously posted articles."
-      ]
-    },{
+        "The app has features for clients like having diets,workout programs,disponible articles and recipes ,bmi and tdee calculators for free",
+        "As a fit person, you can use our app to stay up-to-date on the latest fitness news and easily access all of our offered services.",
+        "We have developed several tools specifically for sport guys on our app, including the ability to have diets,workout programs,disponible articles and recipes ,bmi and tdee calculators for free."
+   ] },{
       "tag":"mobileapp",
       "patterns":[
-        "Are there mobile version for our app ?"
+        "Are there mobile version for our app?"
       ],
       "responses":[
-        "yes , we have a mobile version for our app"
+        "Not yet but its coming,stay tuned "
       ]
     }
   ]
