@@ -21,6 +21,8 @@ const routes: Routes = [
       { path: 'programs', loadChildren: () => import('../../components/front-office/programs/programs.module').then(m => m.ProgramsModule) },
       { path: 'articles', loadChildren: () => import('../../components/front-office/articles/articles.module').then(m => m.ArticlesModule) },
       { path: 'diets', loadChildren: () => import('./diets/diets.module').then(m => m.DietsModule) },
+      { path: 'reclamations', loadChildren: () => import('./reclamations/reclamations.module').then(m => m.ReclamationsModule) },
+
     ] },
 
 

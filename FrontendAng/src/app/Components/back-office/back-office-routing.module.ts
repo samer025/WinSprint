@@ -14,6 +14,7 @@ const routes: Routes = [
       { path: 'exercices', loadChildren: () => import('../../components/back-office/exercices/exercices.module').then(m => m.ExercicesModule) },
       { path: 'foods', loadChildren: () => import('../../components/back-office/foods/foods.module').then(m => m.FoodsModule) },
       { path: 'diets', loadChildren: () => import('../../components/back-office/diets/diets.module').then(m => m.DietsModule) },
+      { path: 'reclamations', loadChildren: () => import('./reclamations/reclamations.module').then(m => m.ReclamationsModule) },
       { path: 'users', component: UserListComponent },
       { path: 'users/:id', component: EditUserComponent }
     ]
