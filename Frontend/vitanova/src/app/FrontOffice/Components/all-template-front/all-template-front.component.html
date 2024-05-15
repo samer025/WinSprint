@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VITANOVA</title>
+    <!-- Stylesheet-->
+    <link href="https://cdn.jsdelivr.net/npm/uil-font-icon@1.0.0/css/uil.min.css" rel="stylesheet">
+        <!-- ICONSCOUT CDN -->
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css">
+</head>
+<body>
+    <app-navbar></app-navbar>
+
+   
+<main>
+    <div class="container" >  
+        
+        
+   
+        <div class="left-body">
+            <app-sidebar (openComponent)="openComponent($event)"></app-sidebar>
+        </div>
+        <div class="middle-body">
+            <div class="stories">
+                <div>
+                    <app-ad></app-ad>
+                </div>
+               
+                
+
+            </div>
+
+
+            <div><app-create-story></app-create-story></div>
+            
+            <div *ngIf="componentToOpen === 'home'">
+                <app-home></app-home>
+            </div>
+            <div *ngIf="componentToOpen === 'games'">
+                <app-chrome-game></app-chrome-game>
+            </div>
+            <div *ngIf="componentToOpen === 'messages'">
+
+            </div>
+            
+
+        </div>
+        <div class="right-body">
+            
+            <div class="friend-requests">
+                <div>
+                    <app-story></app-story>
+                </div>
+            </div>
+            
+
+        </div>
+        
+    </div> 
+    
+    
+</main>
+
+
+
+
+
+
+
+</body>
+
+

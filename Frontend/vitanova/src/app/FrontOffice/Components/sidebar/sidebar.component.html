@@ -1,0 +1,45 @@
+<div class="left-body">
+    <a class="profile">
+        <div class="profile-picture">
+             <img src="./images/profile-1.jpg" alt="">
+        </div>
+        <div class="handle">
+            <h4>Wassim </h4>
+            <p class="text-muted">
+                @MAJDOUB
+            </p>
+        </div>
+    </a>
+    <!--------------SIDEBAR--------------------->
+    <div class="sidebar">
+        
+        <a class="menu-item active" (click)="openHome()">
+            <span><i class="uil uil-home"></i></span><h3>Home</h3> 
+        </a>
+        <a class="menu-item">
+            <span><i class="uil uil-compass"></i></span><h3>Explore</h3>   
+        </a>
+        <a class="menu-item" id="notifications">
+            <span><i class="uil uil-bell"><small class="notification-count">9+</small></i></span><h3>Notifications</h3>
+            
+            <!--======================End PopUp=================-->
+        </a>
+        <a class="menu-item" id="messages-notification" >
+            <span><i class="uil uil-envelope-alt"><small class="notification-count">6+</small></i></span><h3>Messages</h3>
+        </a>
+        <a class="menu-item">
+            <span><i class="uil uil-bookmark"></i></span><h3>Bookmarks</h3>
+        </a>
+        <a class="menu-item">
+            <span><i class="uil uil-chart-line"></i></span><h3>Analytics</h3>
+        </a>
+        <a class="menu-item" id="theme" (click)="openGames()">
+            <span><i class="uil uil-palette"></i></span><h3>Games</h3>
+        </a>
+        <a class="menu-item ">
+            <span><i class="uil uil-setting"></i></span><h3>Settings</h3>
+        </a>
+    </div>
+    <!--===================END of Sidebar ===========-->
+    <label for="create-post" class="btn btn-primary">Create Post</label>
+</div>

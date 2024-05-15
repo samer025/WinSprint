@@ -1,0 +1,44 @@
+<!-- app.component.html -->
+
+<div class="container">
+    
+    <input  type="text" [(ngModel)]="query" placeholder="look for good music">
+    <button (click)="search(query)">Search</button>
+  
+  
+  
+  
+  
+    <div *ngFor="let track of topTracks" class="card" >
+        <button (click)="selectTrack(track)">this one </button>
+      <div class="img-holder">
+        <img src="{{ track.album.images[0].url }}" alt="{{ track.name }}">
+      </div>
+      <div class="text">
+        <h2>{{ track.name }}</h2>
+        <p>{{ track.album.name }}</p>
+      </div>
+      <div class="play-icon">
+        <div class="circle">
+          <div class="triangle"></div>
+        </div>
+      </div>
+      <button class="play-button">
+        <i class="fas fa-play">
+          
+        </i>
+      </button>
+    </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  

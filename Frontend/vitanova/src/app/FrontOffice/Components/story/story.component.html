@@ -1,0 +1,51 @@
+
+<main class="main">
+  <section class="stories">
+    <div class="stories__item stories__item--active">
+      <button>
+        <div class="stories__item-picture">
+          <img src="https://randomuser.me/api/portraits/women/90.jpg" alt="gail_pena's profile picture">
+        </div>
+        <span class="stories__item-username">gail_pena</span>
+      </button>
+    </div>
+    </section>
+    </main>
+
+
+
+<div class="story-card" *ngFor="let story of allStories">
+
+  <main class="main">
+    <section class="stories">
+      <div class="stories__item stories__item--active">
+        <button (click)="openStoryDialog(story)">       
+             <div class="stories__item-picture">
+            <img src="https://th.bing.com/th/id/R.9067cf4902694af75a515bfc594a6822?rik=M%2f2TQZ5nBra2Hw&pid=ImgRaw&r=0" alt="gail_pena's profile picture">
+          </div>
+          <span class="stories__item-username">{{story.storyedBy}}</span>
+        </button>
+      </div>
+
+
+
+
+      
+  
+      
+    </section>
+  </main>
+
+</div>
+
+
+<div>
+
+</div>
+
+
+
+
+
+
+

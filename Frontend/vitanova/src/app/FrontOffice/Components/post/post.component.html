@@ -1,0 +1,139 @@
+<div>
+    <form class="create-post">
+        <div class="profile-picture">
+            <img src=".assets/Frontend/images/profile-1.jpg" alt="">
+        </div>
+        <input type="text" placeholder="What's on your mind?" id="create-post" (click)="showCreatePost = !showCreatePost">
+        <input type="submit" value="Post" class="btn btn-primary"(click)="showCreatePost = !showCreatePost">
+        
+
+    </form>
+</div>
+
+
+<ng-container *ngIf="showCreatePost">
+    <app-create-post></app-create-post>
+    <button (click)="showCreatePost = false">Close</button>
+  </ng-container>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="card-container" *ngFor="let item of allPosts">
+    
+    <mat-card>
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{item.name}}</mat-card-title>
+            <mat-card-subtitle>Posted by:{{item.postedBy}} |Posted on :{{item.date|date:'medium'}}</mat-card-subtitle>
+        </mat-card-header>
+
+        
+        
+          
+
+            <mat-grid-list cols="5">
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                  <div *ngFor="let img of item.images">
+                    <img mat-card-image [src]="decodeBase64(img.data)" class="ad-img" alt="Card Image">
+
+                  </div>
+                </mat-grid-tile>
+
+                
+              
+                
+                  
+          
+
+           
+
+            
+
+
+
+            <mat-grid-tile [colspan]="3"[rowspan]="1">
+                <mat-card-content>
+                    {{item.content.length>600 ? item.content.substr(0,600)+'...':item.content}}
+                </mat-card-content>
+            
+            </mat-grid-tile>
+        </mat-grid-list>
+        <hr>
+            <mat-card-actions>
+                <button (click)="likePost(item.id)">{{item.likeCount}}<mat-icon>favorite</mat-icon></button>
+                <button >{{item.viewCount}}
+                <mat-icon>remove_red_eye</mat-icon></button>
+                
+                <button   (click)="deletePost(item.id)"><mat-icon>delete</mat-icon></button>
+
+
+            </mat-card-actions>
+
+            <div style="margin-top: 10px;">
+                <h3 >Comments</h3>
+                
+                <mat-card style="margin-top: 10px;" *ngFor="let c of comments">
+                    <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>{{c.postedBy}}</mat-card-title>
+                    <mat-card-subtitle>{{c.createdAt | date:'medium'}}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    {{c.content}}
+                </mat-card-content>
+                </mat-card>
+            </div>
+                
+
+    </mat-card>
+    <mat-card-actions>
+        <!-- Other buttons -->
+        <button (click)="toggleComments(item)" >add Comment</button>
+    </mat-card-actions>
+
+
+    <ng-container *ngIf="showComments">
+    <div  class="card-container">
+
+        <mat-card class="comment-card">
+            <mat-card-content>
+                <h4>Publish your Comment</h4>
+                <div>
+                    <form [formGroup]="commentForm">
+    
+                        <mat-form-field appearance="fill">
+                            <mat-label>content</mat-label>
+                            <textarea matInput formControlName="content"></textarea>
+                        </mat-form-field>
+    
+                        <mat-form-field appearance="fill">
+                            <mat-label>postedBy</mat-label>
+                            <input matInput formControlName="postedBy">
+                        </mat-form-field>
+    
+                        <button  (click)="publishComment(item.id)"  style="float:right;" [disabled]="!commentForm.valid">Publish Comment</button>
+                    </form>
+                </div>
+            </mat-card-content>
+        </mat-card>
+      
+    
+    
+    
+    </div>
+    
+</ng-container>
+
+</div>

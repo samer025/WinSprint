@@ -1,0 +1,56 @@
+<mat-card class="center-card">
+    <mat-card-content>
+      <div class="card p-2">
+        <button mat-raised-button color="primary" (click)="toggleForm()">Add Story</button>
+
+        <form *ngIf="showForm" (ngSubmit)="createstory()"enctype="multipart/form-data">
+
+
+
+
+
+          <div class="form-group">
+            <label for="images">Upload Images:</label>
+            <input type="file" id="images" name="images" (change)="onFileSelected($event)" multiple class="form-control">
+          </div>
+
+          
+  
+          <table>
+            <tr *ngFor="let file of files">
+              <td>
+                <!-- Use ngIf to conditionally render the image when the processedImg is available -->
+                <img *ngIf="file.processedImg"  style="width: 100px;" [src]="file.processedImg" alt="File Image" class="img-thumbnail" />
+              </td>
+            </tr>
+          </table> 
+          <br>
+          <div class="form-group">
+            
+            <app-spotify (trackSelected)="onTrackSelected($event)"></app-spotify>
+          </div> 
+          <br>
+          <label for="content">Content:</label>
+    <textarea id="content" name="content" [(ngModel)]="story.content" required></textarea>
+    <br>       
+                
+          <label for="storyedBy">storyed By:</label>
+          <input type="text" id="storyedBy" name="storyedBy" [(ngModel)]="story.storyedBy" required>
+          <br>
+          
+                <br>
+  
+      <label for="tags">Tags:</label>
+      <input type="text" id="tags" name="tags" [(ngModel)]="newTag">
+      <button type="button" (click)="addTag(newTag)">Add Tag</button>
+      <br>
+      <div *ngFor="let tag of story.tags; let i=index">
+        <span>{{ tag }}</span>
+        <button type="button" (click)="removeTag(i)">Remove</button>
+      </div>
+      <br>
+                <button mat-raised-button type="submit"  color="primary" style="float: right;"  >story</button>
+            </form>
+        </div>
+    </mat-card-content>
+</mat-card>

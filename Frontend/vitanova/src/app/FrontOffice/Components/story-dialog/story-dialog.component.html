@@ -1,0 +1,29 @@
+
+
+
+<h2 mat-dialog-title>{{ data.story.storyedBy }}</h2>
+<div mat-dialog-content>
+
+
+
+  <mat-card style="margin-top: 10px;" >
+    <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>MUSIC PLAYING:{{ data.story.artistName }}{{ data.story.trackName }}</mat-card-title>
+    <mat-card-subtitle>{{data.story.date | date:'medium'}}</mat-card-subtitle>
+</mat-card-header>
+<mat-card-content>
+  <div *ngFor="let img of data.story.images">
+    <img [src]="decodeBase64(img.data)" class="ad-img" alt="Card Image" height="200px" width="200px">
+  </div>
+</mat-card-content>
+</mat-card>
+
+
+
+
+
+
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="true">Close</button>
+</div>
