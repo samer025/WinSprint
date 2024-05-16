@@ -32,15 +32,15 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
-  @Autowired
-  AuthenticationManager authenticationManager;
+
 
   @Autowired
   UserRepository userRepository;
 
   @Autowired
   RoleRepository roleRepository;
-
+  @Autowired
+  AuthenticationManager authenticationManager;
   @Autowired
   PasswordEncoder encoder;
 
@@ -52,7 +52,7 @@ public class AuthController {
 
   @PostMapping("/signin")
   public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
-
+    System.out.println("Received login request: " + loginRequest.getPassword());
     Authentication authentication = authenticationManager.authenticate(
         new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
 
@@ -66,7 +66,7 @@ public class AuthController {
 
     return ResponseEntity.ok(new JwtResponse(jwt,
                          userDetails.getId(), 
-                         userDetails.getUsername(), 
+                         userDetails.getUsername(),
                          userDetails.getEmail(), 
                          roles));
   }
